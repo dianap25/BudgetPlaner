@@ -1,0 +1,266 @@
+:root {
+	--ink: #1f2933;
+	--muted: #616e7c;
+	--line: #d9dfe6;
+	--surface: #ffffff;
+	--page: #f4f6f8;
+	--accent: #25527a;
+	--ok: #2e7d32;
+	--warning: #e07b00;
+	--exceeded: #c62828;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+[hidden] {
+	display: none !important;
+}
+
+body {
+	margin: 0;
+	background: var(--page);
+	color: var(--ink);
+	font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.page {
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 24px 16px 48px;
+}
+
+h1 {
+	margin: 0;
+	font-size: 1.6rem;
+}
+
+h2 {
+	margin: 32px 0 12px;
+	font-size: 1.15rem;
+}
+
+h3 {
+	margin: 0;
+	font-size: 1rem;
+}
+
+.toolbar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.month-controls {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px;
+}
+
+.closed-label {
+	padding: 2px 10px;
+	border-radius: 999px;
+	background: var(--ink);
+	color: var(--surface);
+	font-size: 0.85rem;
+}
+
+input,
+select,
+button {
+	font: inherit;
+	padding: 7px 10px;
+	border: 1px solid var(--line);
+	border-radius: 6px;
+	background: var(--surface);
+	color: inherit;
+}
+
+button {
+	border-color: var(--accent);
+	background: var(--accent);
+	color: var(--surface);
+	cursor: pointer;
+}
+
+button.delete {
+	padding: 3px 10px;
+	border-color: var(--line);
+	background: var(--surface);
+	color: var(--exceeded);
+}
+
+button:disabled {
+	border-color: var(--line);
+	background: var(--line);
+	color: var(--muted);
+	cursor: not-allowed;
+}
+
+.message {
+	margin: 16px 0 0;
+	padding: 10px 14px;
+	border-radius: 6px;
+	color: var(--surface);
+}
+
+.message-success {
+	background: var(--ok);
+}
+
+.message-warning {
+	background: #a85a00;
+}
+
+.message-error {
+	background: var(--exceeded);
+}
+
+.cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+	gap: 12px;
+}
+
+.card {
+	padding: 14px;
+	border: 1px solid var(--line);
+	border-radius: 8px;
+	background: var(--surface);
+}
+
+.card-header {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 8px;
+}
+
+.percent {
+	font-weight: 600;
+	font-variant-numeric: tabular-nums;
+}
+
+.spent {
+	margin: 4px 0 10px;
+	color: var(--muted);
+	font-variant-numeric: tabular-nums;
+}
+
+.bar {
+	height: 8px;
+	overflow: hidden;
+	border-radius: 4px;
+	background: var(--line);
+}
+
+.bar-fill {
+	height: 100%;
+	background: var(--status);
+}
+
+.status-OK {
+	--status: var(--ok);
+}
+
+.status-WARNING {
+	--status: var(--warning);
+}
+
+.status-EXCEEDED {
+	--status: var(--exceeded);
+}
+
+.card .percent {
+	color: var(--status);
+}
+
+.totals {
+	margin: 14px 0 0;
+	font-weight: 600;
+}
+
+fieldset {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	align-items: end;
+	gap: 12px;
+	margin: 0;
+	padding: 14px;
+	border: 1px solid var(--line);
+	border-radius: 8px;
+	background: var(--surface);
+}
+
+fieldset label {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	color: var(--muted);
+	font-size: 0.9rem;
+}
+
+fieldset input,
+fieldset select {
+	width: 100%;
+	color: var(--ink);
+}
+
+fieldset input,
+fieldset select,
+fieldset button {
+	height: 40px;
+}
+
+.table-wrap {
+	overflow-x: auto;
+	border: 1px solid var(--line);
+	border-radius: 8px;
+	background: var(--surface);
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th,
+td {
+	padding: 8px 12px;
+	border-bottom: 1px solid var(--line);
+	text-align: left;
+	white-space: nowrap;
+}
+
+td:nth-child(3) {
+	width: 100%;
+	white-space: normal;
+}
+
+tbody tr:last-child td {
+	border-bottom: 0;
+}
+
+th {
+	color: var(--muted);
+	font-size: 0.85rem;
+	font-weight: 600;
+}
+
+.amount {
+	text-align: right;
+	font-variant-numeric: tabular-nums;
+}
+
+.actions {
+	text-align: right;
+}
+
+.empty {
+	margin: 10px 0 0;
+	color: var(--muted);
+}

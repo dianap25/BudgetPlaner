@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pl">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Budżet domowy</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<main class="page">
+		<header class="toolbar">
+			<h1>Budżet domowy</h1>
+			<div class="month-controls">
+				<label for="month">Miesiąc</label>
+				<input type="month" id="month" value="2027-03">
+				<span id="closed-label" class="closed-label" hidden>Miesiąc zamknięty</span>
+				<button type="button" id="close-month">Zamknij miesiąc</button>
+			</div>
+		</header>
+
+		<p id="message" class="message" role="status" hidden></p>
+
+		<section>
+			<h2>Podsumowanie</h2>
+			<div id="cards" class="cards"></div>
+			<p id="totals" class="totals"></p>
+		</section>
+
+		<section>
+			<h2>Nowy wydatek</h2>
+			<form id="expense-form" novalidate>
+				<fieldset id="expense-fields">
+					<label>
+						Kategoria
+						<select id="expense-category"></select>
+					</label>
+					<label>
+						Kwota
+						<input type="number" id="expense-amount" step="0.01" min="0">
+					</label>
+					<label>
+						Data
+						<input type="date" id="expense-date">
+					</label>
+					<label class="wide">
+						Opis
+						<input type="text" id="expense-description">
+					</label>
+					<button type="submit">Dodaj</button>
+				</fieldset>
+			</form>
+		</section>
+
+		<section>
+			<h2>Wydatki miesiąca</h2>
+			<div class="table-wrap">
+				<table>
+					<thead>
+						<tr>
+							<th>Data</th>
+							<th>Kategoria</th>
+							<th>Opis</th>
+							<th class="amount">Kwota</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody id="expenses"></tbody>
+				</table>
+			</div>
+			<p id="no-expenses" class="empty" hidden>Brak wydatków w tym miesiącu.</p>
+		</section>
+	</main>
+
+	<script src="app.js"></script>
+</body>
+</html>
